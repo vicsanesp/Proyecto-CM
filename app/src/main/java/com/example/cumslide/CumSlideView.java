@@ -48,8 +48,8 @@ public class CumSlideView extends View {
         canvas.drawColor(Color.WHITE);
         // Define the paint for the lines
         Paint linePaint = new Paint();
-        linePaint.setColor(Color.MAGENTA);
-        linePaint.setStrokeWidth(5);
+        linePaint.setColor(Color.argb(255, 155, 184, 145));
+        linePaint.setStrokeWidth(50);
 
         // Define the paint for the bridges
         Paint bridgePaint = new Paint();
