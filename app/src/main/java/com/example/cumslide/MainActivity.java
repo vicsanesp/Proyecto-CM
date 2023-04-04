@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FrameLayout frameLayout = findViewById(R.id.frame_layout);
+        //FrameLayout frameLayout = findViewById(R.id.frame_layout);
 
-        CumSlideView cumSlideView = new CumSlideView(this, null);
-        cumSlideView.setLayoutParams(new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.MATCH_PARENT));
-        frameLayout.addView(cumSlideView);
+        //CumSlideView cumSlideView = new CumSlideView(this, null);
+        //cumSlideView.setLayoutParams(new FrameLayout.LayoutParams(
+        //        FrameLayout.LayoutParams.MATCH_PARENT,
+        //        FrameLayout.LayoutParams.MATCH_PARENT));
+        //frameLayout.addView(cumSlideView);
 
-        eustaquio = (ImageView)findViewById(R.id.cumslide_view);
+        eustaquio = (ImageView)findViewById(R.id.eustaquio);
         WindowManager wm = getWindowManager();
         Display disp = wm.getDefaultDisplay();
         Point size = new Point();
@@ -44,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
         screenWidth = size.x;
         screenHeight = size.y;
 
-        eustaquio.setX(-80.0f);
-        eustaquio.setY(-80.0f);
+
 
         timer.schedule(new TimerTask(){
             @Override
@@ -61,11 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changePos(){
-        eustaquioY -= 10;
-        if(eustaquio.getY() + eustaquio.getHeight() < 0){
-            eustaquioX = screenWidth / 4;
-            eustaquioY = screenHeight + 100F;
-        }
+        eustaquioY += 10;
 
         eustaquio.setX(eustaquioX);
         eustaquio.setY(eustaquioY);
