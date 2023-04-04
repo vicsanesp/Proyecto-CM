@@ -10,21 +10,9 @@
         android:layout_height="match_parent"/>
 
     <ImageView
-        android:id="@id/cumslide_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/eustaquio" />
-
-    <ImageView
-        android:id="@id/cumslide_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/pinchoreondo" />
-
-    <ImageView
-        android:id="@id/cumslide_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/pincho" />
+        android:src="@drawable/eustaquio"
+        android:id="@+id/eustaquio"/>
 
 </FrameLayout>

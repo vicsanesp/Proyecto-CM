@@ -1,12 +1,28 @@
 package com.example.cumslide;
 
+import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Display;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
+    private int screenWidth;
+    private int screenHeight;
+    private ImageView eustaquio;
+    private float eustaquioX;
+    private float eustaquioY;
+
+    private Handler handler = new Handler();
+    private Timer timer = new Timer();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +36,39 @@ public class MainActivity extends AppCompatActivity {
                 FrameLayout.LayoutParams.MATCH_PARENT));
         frameLayout.addView(cumSlideView);
 
+        eustaquio = (ImageView)findViewById(R.id.cumslide_view);
+        WindowManager wm = getWindowManager();
+        Display disp = wm.getDefaultDisplay();
+        Point size = new Point();
+        disp.getSize(size);
+        screenWidth = size.x;
+        screenHeight = size.y;
+
+        eustaquio.setX(-80.0f);
+        eustaquio.setY(-80.0f);
+
+        timer.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                handler.post(new Runnable(){
+                    @Override
+                    public void run() {
+                        changePos();
+                    }
+                });
+            }
+        }, 0, 20);
     }
+
+    public void changePos(){
+        eustaquioY -= 10;
+        if(eustaquio.getY() + eustaquio.getHeight() < 0){
+            eustaquioX = screenWidth / 4;
+            eustaquioY = screenHeight + 100F;
+        }
+
+        eustaquio.setX(eustaquioX);
+        eustaquio.setY(eustaquioY);
+    }
+
 }
