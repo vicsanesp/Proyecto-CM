@@ -19,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
         frameLayout.addView(cumSlideView);
+
     }
 }
