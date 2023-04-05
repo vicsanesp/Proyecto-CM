@@ -10,11 +10,9 @@
         android:layout_height="match_parent"/>
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:src="@drawable/eustaquio"
         android:id="@+id/eustaquio"
-        android:maxHeight="350dp"
-        android:maxWidth="350dp" />
+        android:layout_width="95dp"
+        android:layout_height="130dp"
+        android:src="@drawable/eustaquio" />
 
 </FrameLayout>

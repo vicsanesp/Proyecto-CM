@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changePos(){
-        eustaquioY += 10;
+        eustaquioY += 7.5;
 
         eustaquio.setX(eustaquioX);
         eustaquio.setY(eustaquioY);
