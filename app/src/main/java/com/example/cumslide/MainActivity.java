@@ -7,6 +7,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView eustaquio;
     private float eustaquioX;
     private float eustaquioY;
+
+    private boolean inBridge;
 
     private Handler handler = new Handler();
     private Timer timer = new Timer();
@@ -60,10 +63,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changePos(){
-        eustaquioY += 7.5;
+        if(eustaquioX == 0){
+            eustaquioX = 50;
+            eustaquio.setX(eustaquioX);
+        }
+        inBridge = false;
 
-        eustaquio.setX(eustaquioX);
-        eustaquio.setY(eustaquioY);
+        if(inBridge){
+            if(Bridge.source.getY()==Bridge.target.getY()){ //Horizontal
+                eustaquioX += 10;
+                eustaquio.setX(eustaquioX);
+            } else{ //Diagonal
+
+            }
+        }
+        else {
+            //if(CumSlide.matrix.get(Math.round(eustaquioX)).get(Math.round(eustaquioY))!=0) {
+                eustaquioY += 10;
+                eustaquio.setY(eustaquioY);
+            //}
+        }
+
     }
 
 }

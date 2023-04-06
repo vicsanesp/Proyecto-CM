@@ -1,35 +1,35 @@
 package com.example.cumslide;
 
 public class Bridge {
-    private Pair a;
-    private Pair b;
+    public static Pair source;
+    public static Pair target;
 
     public Bridge(Integer a, Integer b, Integer c, Integer d){
-        this.a = new Pair(a,b);
-        this.b = new Pair(c,d);
+        this.source = new Pair(a,b);
+        this.target = new Pair(c,d);
     }
 
-    public Pair getA(){
-        return this.a;
+    public static Pair getSource(){
+        return source;
     }
 
-    public Pair getB(){
-        return this.b;
+    public static Pair getTarget(){
+        return target;
     }
 
-    public Integer getAx(){
-        return this.a.getX();
+    public static Integer getSourceX(){
+        return source.getX();
     }
 
-    public Integer getAy(){
-        return this.a.getY();
+    public static Integer getSourceY(){
+        return source.getY();
     }
 
-    public Integer getBx(){
-        return this.b.getX();
+    public static Integer getTargetX(){
+        return target.getX();
     }
 
-    public Integer getBy(){
-        return this.b.getY();
+    public static Integer getTargetY(){
+        return target.getY();
     }
 }

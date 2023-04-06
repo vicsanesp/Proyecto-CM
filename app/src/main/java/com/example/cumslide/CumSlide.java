@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class CumSlide {
-    List<List<Integer>> matrix = new ArrayList<List<Integer>>();
+    public static List<List<Integer>> matrix = new ArrayList<List<Integer>>();
     Pair player = new Pair(0,0); // Player position: X=row Y=column
     Integer goal = 0; // Column of the goal
 

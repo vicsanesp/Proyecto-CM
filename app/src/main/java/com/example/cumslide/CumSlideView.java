@@ -76,10 +76,10 @@ public class CumSlideView extends View {
         int maxKey = Collections.max(cumSlide.positions.keySet());
 
         for (Bridge c : cumSlide.positions.values()){
-            Float startingX = Float.valueOf(c.getAx()*columnWidth+columnWidth/2);
-            Float startingY = Float.valueOf(c.getAy()*rowWidth);
-            Float stoppingX = Float.valueOf((c.getBx()*columnWidth+columnWidth/2));
-            Float stoppingY = Float.valueOf(c.getBy()*rowWidth);
+            Float startingX = Float.valueOf(c.getSourceX()*columnWidth+columnWidth/2);
+            Float startingY = Float.valueOf(c.getSourceY()*rowWidth);
+            Float stoppingX = Float.valueOf((c.getTargetX()*columnWidth+columnWidth/2));
+            Float stoppingY = Float.valueOf(c.getTargetY()*rowWidth);
             canvas.drawLine(startingX, startingY, stoppingX, stoppingY, linePaint);
         }
     }
