@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/eustaquio"
-        android:layout_width="95dp"
-        android:layout_height="130dp"
+        android:layout_width="65dp"
+        android:layout_height="95dp"
         android:src="@drawable/eustaquio" />
 
 </FrameLayout>

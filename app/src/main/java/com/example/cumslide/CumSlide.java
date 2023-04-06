@@ -10,7 +10,7 @@ public class CumSlide {
     Pair player = new Pair(0,0); // Player position: X=row Y=column
     Integer goal = 0; // Column of the goal
 
-    public Map<Integer, Cuarteto> positions = new HashMap<>();
+    public Map<Integer, Bridge> positions = new HashMap<>();
 
     public CumSlide(){
         matrix = new ArrayList<List<Integer>>();
@@ -63,14 +63,23 @@ public class CumSlide {
     public void addBridge(List<List<Integer>> matrix, int i) {
         int bridgeColumn = new Random().nextInt(3); // seleccionar una columna al azar
         int bridgeRow = new Random().nextInt(20); // seleccionar una fila al azar
-        int bridgeRow2 = new Random().nextInt(20); // seleccionar otra fila al azar
+        //int bridgeRow2 = new Random().nextInt(20); // seleccionar otra fila al azar
+        int bridgeRow2 = bridgeRow==3 ? bridgeRow-1 : bridgeRow; // seleccionar otra fila al azar
 
         int bridgeValue = i; // el valor del puente es i
 
         // Comprobar si ya hay un puente en las celdas seleccionadas
-        while (matrix.get(bridgeRow).get(bridgeColumn) != 0 || matrix.get(bridgeRow).get(bridgeColumn + 1) != 0) {
+        if(matrix.get(bridgeRow).get(bridgeColumn) != 0 || matrix.get(bridgeRow).get(bridgeColumn + 1) != 0) {
             bridgeColumn = new Random().nextInt(3); // seleccionar otra columna al azar
-            bridgeRow = new Random().nextInt(20); // seleccionar otra fila al azar
+            bridgeRow = new Random().nextInt(20); // seleccionar una fila al azar
+            bridgeRow2 = bridgeRow==3 ? bridgeRow-1 : bridgeRow;
+        }
+
+        // Comprobar si el puente está en la primera fila o segunda fila (inservible)
+        if(bridgeRow==0 || bridgeRow==1) {
+            bridgeColumn = new Random().nextInt(3); // seleccionar otra columna al azar
+            bridgeRow = new Random().nextInt(20); // seleccionar una fila al azar
+            bridgeRow2 = bridgeRow == 3 ? bridgeRow - 1 : bridgeRow;
         }
 
         // agregar el puente a la matriz
@@ -78,7 +87,7 @@ public class CumSlide {
         matrix.get(bridgeRow2).set(bridgeColumn + 1, bridgeValue);
 
         // Agregar al diccionario positions, una lista con las parejas del puente
-        positions.put(i, new Cuarteto(bridgeColumn, bridgeRow, bridgeColumn+1, bridgeRow2));
+        positions.put(i, new Bridge(bridgeColumn, bridgeRow, bridgeColumn+1, bridgeRow2));
         System.out.print("Se ha añadido un cuarteto");
     }
 

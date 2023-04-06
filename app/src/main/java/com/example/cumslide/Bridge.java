@@ -1,10 +1,10 @@
 package com.example.cumslide;
 
-public class Cuarteto {
+public class Bridge {
     private Pair a;
     private Pair b;
 
-    public Cuarteto(Integer a, Integer b, Integer c, Integer d){
+    public Bridge(Integer a, Integer b, Integer c, Integer d){
         this.a = new Pair(a,b);
         this.b = new Pair(c,d);
     }

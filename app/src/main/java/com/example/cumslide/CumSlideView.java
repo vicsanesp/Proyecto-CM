@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -76,7 +75,7 @@ public class CumSlideView extends View {
         // Draw the oblique line between the two cells
         int maxKey = Collections.max(cumSlide.positions.keySet());
 
-        for (Cuarteto c : cumSlide.positions.values()){
+        for (Bridge c : cumSlide.positions.values()){
             Float startingX = Float.valueOf(c.getAx()*columnWidth+columnWidth/2);
             Float startingY = Float.valueOf(c.getAy()*rowWidth);
             Float stoppingX = Float.valueOf((c.getBx()*columnWidth+columnWidth/2));
