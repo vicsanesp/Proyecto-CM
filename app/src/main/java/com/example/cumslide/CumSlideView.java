@@ -18,12 +18,10 @@ public class CumSlideView extends View {
     private int screenWidth, screenHeight;
     private int numRows, numCols;
     private int playerRow, playerCol;
-    private Jugador player;
 
     public CumSlideView(Context context, AttributeSet attr) {
         super(context, attr);
         cumSlide = new CumSlide(20);
-        player = new Jugador();
         numRows = cumSlide.matrix.size();
         numCols = cumSlide.matrix.get(0).size();
         paint = new Paint();
@@ -87,25 +85,6 @@ public class CumSlideView extends View {
         }
     }
 
-    public void movePlayer(int dx, int dy) {
-        Integer xpos = player.getX();
-        Integer ypos = player.getY();
-        Integer pos = cumSlide.matrix.get(xpos).get(ypos);
-        if (pos!=0 && !player.getMov()){
-            player.setMovimiento(Boolean.TRUE);
-            player.setCuarteto(cumSlide.positions.get(pos), new Pair(xpos, ypos));
-        }
-        else{
-            if (xpos == player.posicionFinal.getX() && ypos == player.posicionFinal.getY() && player.getMov()==Boolean.TRUE) {
-                player.setMovimiento(Boolean.FALSE);
-            }
-            else{
-                player.setCuarteto(new Cuarteto(0,0,0,0), new Pair(0,0));
-            }
-
-        }
-        player.setY(player.getY()+1);
-    }
 //
 //    public void reset() {
 //        cumSlide = new CumSlide(20);
