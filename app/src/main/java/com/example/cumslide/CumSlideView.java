@@ -77,8 +77,9 @@ public class CumSlideView extends View {
 
 
         for (Bridge c : cumSlide.positions.values()){
-            System.out.println(c.getSourceX() + " - " + c.getSourceY());
-            System.out.println(c.getTargetX() + " - " + c.getTargetY());
+            System.out.println(cumSlide.positions);
+            //System.out.println(c.getSourceX() + " - " + c.getSourceY());
+            //System.out.println(c.getTargetX() + " - " + c.getTargetY());
             Float startingX = Float.valueOf(c.getSourceX()*columnWidth+columnWidth/2);
             Float startingY = Float.valueOf(c.getSourceY()*rowWidth);
             Float stoppingX = Float.valueOf((c.getTargetX()*columnWidth+columnWidth/2));

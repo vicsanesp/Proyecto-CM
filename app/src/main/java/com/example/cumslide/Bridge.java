@@ -9,13 +9,13 @@ public class Bridge {
         this.target = new Pair(c,d);
     }
 
-    public static Pair getSource(){
-        return source;
-    }
+    //public static Pair getSource(){
+    //    return source;
+    //}
 
-    public static Pair getTarget(){
-        return target;
-    }
+    //public static Pair getTarget(){
+    //    return target;
+    //}
 
     public static Integer getSourceX(){
         return source.getX();

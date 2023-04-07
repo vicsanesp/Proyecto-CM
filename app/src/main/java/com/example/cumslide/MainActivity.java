@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     private int screenWidth;
     private int screenHeight;
-    private ImageView eustaquio;
-    private float eustaquioX;
-    private float eustaquioY;
+    private ImageView mario;
+    private float marioX;
+    private float marioY;
 
     private boolean inBridge;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         //        FrameLayout.LayoutParams.MATCH_PARENT));
         //frameLayout.addView(cumSlideView);
 
-        eustaquio = (ImageView)findViewById(R.id.eustaquio);
+        mario = (ImageView)findViewById(R.id.mario);
         WindowManager wm = getWindowManager();
         Display disp = wm.getDefaultDisplay();
         Point size = new Point();
@@ -63,25 +63,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changePos(){
-        if(eustaquioX == 0){
-            eustaquioX = 50;
-            eustaquio.setX(eustaquioX);
+        if(marioX == 0) {
+            marioX = 45;
+            mario.setX(marioX);
+            inBridge = false;
         }
-        inBridge = false;
 
         if(inBridge){
             if(Bridge.source.getY()==Bridge.target.getY()){ //Horizontal
-                eustaquioX += 10;
-                eustaquio.setX(eustaquioX);
+                marioX += 5;
+                mario.setX(marioX);
             } else{ //Diagonal
 
             }
         }
         else {
-            //if(CumSlide.matrix.get(Math.round(eustaquioX)).get(Math.round(eustaquioY))!=0) {
-                eustaquioY += 10;
-                eustaquio.setY(eustaquioY);
+            marioY += 5;
+            mario.setY(marioY);
+            //if(CumSlide.matrix.get(Math.round(marioX)+1).get(Math.round(marioY))!=0) {
+            //    inBridge = true;
             //}
+
         }
 
     }
